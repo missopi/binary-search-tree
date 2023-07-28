@@ -4,7 +4,7 @@
 class Tree
   attr_accessor :root
 
-  def initialize(array)
+  def initialize
     @root = nil
   end
 
