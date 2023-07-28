@@ -6,10 +6,10 @@ class Tree
 
   def initialize(array)
     @value = array.sort.uniq
-    @root = nil
+    @root = build_tree(value)
   end
 
-  def build_tree
+  def build_tree(array)
     return nil unless array
     mid = array.length / 2
     @root = array[mid]
