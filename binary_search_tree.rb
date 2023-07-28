@@ -20,10 +20,9 @@ class Tree
   end
 
   def insert(value)
-    node = @root
+    node = Node.new(data)
     return nil if node.nil?
     return 'Value is equal to another value already present.' if value == node.value
-    
     
     if value < node.value
         # move to left subtree
