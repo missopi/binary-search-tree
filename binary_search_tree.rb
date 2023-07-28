@@ -26,7 +26,7 @@ class Tree
     if value < node.value
         # move to left subtree
         # once node is reached insert node to left or right based on relationship between value and node value
-      else
+    else
         # move to right subtree
         # once node is reached insert node to left or right based on relationship between value and node value
     end
