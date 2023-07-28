@@ -11,29 +11,24 @@ class Tree
 
   def build_tree(array, start, finish)
     return nil if start > finish || start == array.length
-    
+
     mid = (start + finish) / 2
-    root = Node.new(array[mid])
-    root.left = build_tree(array, start, mid-1)
-    root.right = build_tree(array, mid+1, finish)
-    root
+    node = Node.new(array[mid])
+    node.left = build_tree(array, start, mid - 1)
+    node.right = build_tree(array, mid + 1, finish)
+    node
   end
 
   def insert(value)
     node = Node.new(value)
     previous = nil
     root = @root
-    return nil if node.nil? or root.data == node.data
-    
+    return nil if node.nil? || root.data == node.data
+
     until root.nil?
-      if root.data > node.data
-        previous = root
-        root = root.left
-      elsif root.data < node.data
-        previous = root
-        root = root.right
-      end
-    end   
+      previous = root
+      root = root.data > node.data ? root.left : root.right
+    end
     previous.data > node.data ? previous.left = node : previous.right = node
   end
 
@@ -94,7 +89,7 @@ class Tree
     # use traversal method to provide new array to build_tree method
   end
 
-  def pretty_print(node = @root, prefix = '', is_left = true)
+  def pretty_print(node = @root, prefix = '', is_left: true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
     pretty_print(node.left, "#{prefix}#{is_left ? '    ' : '│   '}", true) if node.left
@@ -104,7 +99,6 @@ end
 # represents a node in the binary tree, containing the value and the link to the left and right children
 class Node
   attr_accessor :data, :left, :right
-  
 
   def initialize(data)
     @data = data
