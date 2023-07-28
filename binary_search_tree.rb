@@ -6,16 +6,18 @@ class Tree
 
   def initialize(array)
     @value = array.sort.uniq
-    @root = build_tree(value)
+    @root = build_tree(value, 0, array.length)
   end
 
-  def build_tree(array)
-    return nil unless array
-    mid = array.length / 2
+  def build_tree(array, start, finish)
+    return nil if array.empty?
+    return nil if start > finish || start == array.length
+    
+    mid = (start + finish) / 2
     root = Node.new(array[mid])
-    # recursively find middle of left and right subarrays
-    # get middle of left half and set as left child of root
-    # get middle of right half and set as right child of root
+    root.left = build_tree(array, start, mid-1)
+    root.right = build_tree(array, mid+1, finish)
+    root
   end
 
   def insert(value)
