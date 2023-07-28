@@ -20,6 +20,13 @@ class Tree
   end
 
   def insert(value)
+    node = @root
+    
+    if value < node.value
+      # move to left subtree
+    else
+      # move to right subtree
+    end
   end
 
   def delete(value)
