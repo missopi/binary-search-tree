@@ -20,10 +20,10 @@ class Tree
   end
 
   def insert(value)
-    node = Node.new(value)
     previous = nil
     root = @root
-    return nil if node.nil? || root.data == node.data
+    node = Node.new(value)
+    return nil if root.data == node.data
 
     until root.nil?
       previous = root
