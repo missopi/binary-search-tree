@@ -10,7 +10,6 @@ class Tree
   end
 
   def build_tree(array, start, finish)
-    return nil if array.empty?
     return nil if start > finish || start == array.length
     
     mid = (start + finish) / 2
