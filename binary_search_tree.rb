@@ -12,7 +12,7 @@ class Tree
   def build_tree(array)
     return nil unless array
     mid = array.length / 2
-    @root = array[mid]
+    root = Node.new(array[mid])
     # recursively find middle of left and right subarrays
     # get middle of left half and set as left child of root
     # get middle of right half and set as right child of root
