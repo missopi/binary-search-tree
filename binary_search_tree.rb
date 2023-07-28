@@ -2,16 +2,15 @@
 
 # will represent the actual binary tree
 class Tree
-  attr_accessor :root
+  attr_accessor :value
 
-  def initialize
+  def initialize(array)
+    @value = array.sort.uniq
     @root = nil
   end
 
-  def build_tree(array)
+  def build_tree
     return nil unless array
-    # sort Array
-    # remove duplicates
     mid = array.length / 2
     @root = array[mid]
     # recursively find middle of left and right subarrays
@@ -91,7 +90,7 @@ class Node
   attr_accessor :left, :right
   attr_reader :value
 
-  def initialize(value = nil)
+  def initialize(value)
     @value = value
     @left = nil
     @right = nil
