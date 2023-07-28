@@ -24,9 +24,11 @@ class Tree
     return 'Value is equal to another value already present.' if value == node.value
     
     if value < node.value
-      # move to left subtree
-    else
-      # move to right subtree
+        # move to left subtree
+        # once node is reached insert node to left or right based on relationship between value and node value
+      else
+        # move to right subtree
+        # once node is reached insert node to left or right based on relationship between value and node value
     end
   end
 
