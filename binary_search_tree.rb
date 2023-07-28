@@ -34,12 +34,7 @@ class Tree
         root = root.right
       end
     end   
-    if previous.data > node.data
-      previous.left = node
-    else
-      previous.right = node
-    end
-    
+    previous.data > node.data ? previous.left = node : previous.right = node
   end
 
   def delete(value)
