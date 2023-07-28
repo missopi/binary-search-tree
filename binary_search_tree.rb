@@ -21,6 +21,7 @@ class Tree
 
   def insert(value)
     node = @root
+    return 'Value is equal to another value already present.' if value == node.value
     
     if value < node.value
       # move to left subtree
