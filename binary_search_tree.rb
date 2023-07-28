@@ -12,8 +12,8 @@ class Tree
     # take array of data
     # sort Array
     # remove duplicates
-    # find middle element of array
-    # set middle element as root
+    mid = array.length / 2
+    @root = array[mid]
     # recursively find middle of left and right subarrays
     # get middle of left half and set as left child of root
     # get middle of right half and set as right child of root
