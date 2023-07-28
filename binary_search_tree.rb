@@ -20,17 +20,16 @@ class Tree
   end
 
   def insert(value)
-    node = Node.new(data)
+    node = Node.new(value)
     previous = nil
     root = @root
-    return nil if node.nil?
-    return 'Value is equal to another value already present.' if value == node.data
+    return nil if node.nil? or root.data == node.data
     
     until root.nil?
-      if root > node
+      if root.data > node.data
         previous = root
         root = root.left
-      elsif root < node
+      elsif root.data < node.data
         previous = root
         root = root.right
       end
