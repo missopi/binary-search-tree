@@ -33,13 +33,13 @@ class Tree
         previous = root
         root = root.right
       end
-        
-      if previous > node
-        previous.left = node
-      else
-        previous.right = node
-      end 
+    end   
+    if previous.data > node.data
+      previous.left = node
+    else
+      previous.right = node
     end
+    
   end
 
   def delete(value)
