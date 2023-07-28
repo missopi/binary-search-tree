@@ -9,7 +9,7 @@ class Tree
   end
 
   def build_tree(array)
-    # take array of data
+    return nil unless array
     # sort Array
     # remove duplicates
     mid = array.length / 2
