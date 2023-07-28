@@ -82,4 +82,12 @@ end
 
 # represents a node in the binary tree, containing the value and the link to the left and right children
 class Node
+  attr_accessor :left, :right
+  attr_reader :value
+
+  def initialize(value = nil)
+    @value = value
+    @left = nil
+    @right = nil
+  end
 end
