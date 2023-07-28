@@ -21,7 +21,9 @@ class Tree
 
   def insert(value)
     node = @root
+    return nil if node.nil?
     return 'Value is equal to another value already present.' if value == node.value
+    
     
     if value < node.value
         # move to left subtree
@@ -91,18 +93,18 @@ class Tree
 
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
-    puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.value}"
+    puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
     pretty_print(node.left, "#{prefix}#{is_left ? '    ' : '│   '}", true) if node.left
   end
 end
 
 # represents a node in the binary tree, containing the value and the link to the left and right children
 class Node
-  attr_accessor :left, :right
-  attr_reader :value
+  attr_accessor :data, :left, :right
+  
 
-  def initialize(value)
-    @value = value
+  def initialize(data)
+    @data = data
     @left = nil
     @right = nil
   end
