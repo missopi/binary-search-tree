@@ -2,15 +2,21 @@
 
 # will represent the actual binary tree
 class Tree
+  attr_accessor :root
+  
   def initialize(array)
+    @root = nil
   end
 
   def build_tree(array)
     # take array of data
     # sort Array
-    # remove duplicate
-    # find middle element
-    # create balanced binary tree
+    # remove duplicates
+    # find middle element of array
+    # set middle element as root
+    # recursively find middle of left and right subarrays
+    # get middle of left half and set as left child of root
+    # get middle of right half and set as right child of root
   end
 
   def insert(value)
