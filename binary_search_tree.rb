@@ -21,15 +21,25 @@ class Tree
 
   def insert(value)
     node = Node.new(data)
+    previous = nil
+    root = @root
     return nil if node.nil?
-    return 'Value is equal to another value already present.' if value == node.value
+    return 'Value is equal to another value already present.' if value == node.data
     
-    if value < node.value
-        # move to left subtree
-        # once node is reached insert node to left or right based on relationship between value and node value
-    else
-        # move to right subtree
-        # once node is reached insert node to left or right based on relationship between value and node value
+    until root.nil?
+      if root > node
+        previous = root
+        root = root.left
+      elsif root < node
+        previous = root
+        root = root.right
+      end
+        
+      if previous > node
+        previous.left = node
+      else
+        previous.right = node
+      end 
     end
   end
 
