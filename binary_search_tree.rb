@@ -45,7 +45,7 @@ class Tree
       return left && right
     end
 
-    # if node has children
+    # if node has child
     if root.left
       root.data = root.left.data
       root.left = nil
