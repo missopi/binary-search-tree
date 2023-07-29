@@ -32,8 +32,7 @@ class Tree
     previous.data > node.data ? previous.left = node : previous.right = node
   end
 
-  def delete(value)
-    root = @root
+  def delete(value, root = @root)
     node = Node.new(value)
     root = root.data > node.data ? root.left : root.right until root.data == node.data
 
