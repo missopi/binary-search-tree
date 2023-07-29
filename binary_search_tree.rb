@@ -37,9 +37,16 @@ class Tree
     node = Node.new(value)
     root = root.data > node.data ? root.left : root.right until root.data == node.data
 
+    # if node has no children
     if root.left.nil? && root.right.nil?
+      left = root.left
+      right = root.right
       root = nil
-    elsif root.left
+      return left && right
+    end
+
+    # if node has children
+    if root.left
       root.data = root.left.data
       root.left = nil
     else
