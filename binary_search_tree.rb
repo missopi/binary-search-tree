@@ -33,7 +33,25 @@ class Tree
   end
 
   def delete(value)
-    # return nil is value doesn't exist
+    root = @root
+    previous = nil
+    node = Node.new(value)
+
+    until root.data == node.data
+      previous = root
+      root = root.data > node.data ? root.left : root.right
+    end
+
+    if root.left.nil? && root.right.nil?
+      root = nil
+    elsif root.left
+      root.data = root.left.data
+      root.left = nil
+    else
+      root.data = root.right.data
+      root.right = nil
+    end
+    root
   end
 
   def find(value)
