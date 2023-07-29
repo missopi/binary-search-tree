@@ -35,10 +35,7 @@ class Tree
   def delete(value)
     root = @root
     node = Node.new(value)
-
-    until root.data == node.data
-      root = root.data > node.data ? root.left : root.right
-    end
+    root = root.data > node.data ? root.left : root.right until root.data == node.data
 
     if root.left.nil? && root.right.nil?
       root = nil
