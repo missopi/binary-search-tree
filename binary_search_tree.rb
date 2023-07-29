@@ -33,11 +33,13 @@ class Tree
   end
 
   def delete(value, root = @root)
-    node = Node.new(value)
-    root = root.data > node.data ? root.left : root.right until root.data == node.data
-
-    # if node has no children
-    if root.left.nil? && root.right.nil?
+    if root.data < value
+      root.right = delete(value, root.right)
+      return root
+    elsif root.data > value
+      root.left = delete(value, root.left)
+      return root
+    elsif root.left.nil? && root.right.nil? # if node has no children
       left = root.left
       right = root.right
       root = nil
