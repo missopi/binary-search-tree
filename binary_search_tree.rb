@@ -67,7 +67,9 @@ class Tree
   end
 
   def level_order(&block)
-    # return array of values if no block is given
+    return 'No block given' unless block_given?
+
+    block.call
 
     # breadth-first level order
     # yield each node to provided block
@@ -75,21 +77,27 @@ class Tree
   end
 
   def pre_order(&block)
-    # return array of values if no block is given
+    return 'No block given' unless block_given?
+
+    block.call
 
     # traverse tree in pre_order depth-first order
     # yield each node to provided block
   end
 
   def in_order(&block)
-    # return array of values if no block is given
+    return 'No block given' unless block_given?
+
+    block.call
 
     # traverse tree in in_order depth-first order
     # yield each node to provided block
   end
 
   def post_order(&block)
-    # return array of values if no block is given
+    return 'No block given' unless block_given?
+
+    block.call
 
     # traverse tree in post_order depth-first order
     # yield each node to provided block
