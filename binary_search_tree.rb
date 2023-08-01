@@ -58,10 +58,12 @@ class Tree
   end
 
   def find(value)
-    # return nil is value not found
+    return if @root.nil?
 
-    # go through each to value to end or when value == node value
-    # return node with given value
+    root = @root
+    root = root.data > value ? root.left : root.right until root.nil? || root.data == value
+
+    root
   end
 
   def level_order(&block)
