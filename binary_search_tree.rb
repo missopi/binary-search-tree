@@ -57,12 +57,10 @@ class Tree
     root
   end
 
-  def find(value)
+  def find(value, root = @root)
     return if @root.nil?
 
-    root = @root
     root = root.data > value ? root.left : root.right until root.nil? || root.data == value
-
     root
   end
 
