@@ -65,13 +65,13 @@ class Tree
   end
 
   def level_order(&block)
-    return 'No block given' unless block_given?
-
-    block.call
-
-    # breadth-first level order
-    # yield each node to provided block
-    # use array as a queue (FIFO)
+    queue = [@root]
+    until queue.empty?
+      next_node = queue.shift
+      block_given? ? block.call(next_node) : 'No block given'
+      queue.push(next_node.left) unless next_node.left.nil?
+      queue.push(next_node.right) unless next_node.right.nil?
+    end
   end
 
   def pre_order(&block)
@@ -101,8 +101,9 @@ class Tree
     # yield each node to provided block
   end
 
+  # return number of edges in longest path from given node to leaf node
   def height(node)
-    # return number of edges in longest path from given node to leaf node
+    return -1 if node.nil?
   end
 
   def depth(node)
