@@ -92,13 +92,12 @@ class Tree
     in_order(node.right, &block) unless node.right.nil?
   end
 
-  def post_order(&block)
+  def post_order(node = @root, &block)
     return unless block_given?
 
-    block.call
-
-    # traverse tree in post_order depth-first order
-    # yield each node to provided block
+    post_order(node.left, &block) unless node.left.nil?
+    post_order(node.right, &block) unless node.right.nil?
+    block.call(node)
   end
 
   # return number of edges in longest path from given node to leaf node
