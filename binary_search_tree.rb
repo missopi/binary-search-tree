@@ -65,10 +65,12 @@ class Tree
   end
 
   def level_order(&block)
+    return unless block_given?
+
     queue = [@root]
     until queue.empty?
       next_node = queue.shift
-      block_given? ? block.call(next_node) : 'No block given'
+      block.call(next_node)
       queue.push(next_node.left) unless next_node.left.nil?
       queue.push(next_node.right) unless next_node.right.nil?
     end
