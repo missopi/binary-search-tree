@@ -103,6 +103,9 @@ class Tree
   # return number of edges in longest path from given node to leaf node
   def height(node)
     return -1 if node.nil?
+
+    node = find(node)
+    
   end
 
   def depth(node)
