@@ -76,13 +76,12 @@ class Tree
     end
   end
 
-  def pre_order(&block)
+  def pre_order(node = @root, &block)
     return unless block_given?
 
-    block.call
-
-    # traverse tree in pre_order depth-first order
-    # yield each node to provided block
+    block.call(node)
+    pre_order(node.left, &block) unless node.left.nil?
+    pre_order(node.right, &block) unless node.right.nil?
   end
 
   def in_order(&block)
