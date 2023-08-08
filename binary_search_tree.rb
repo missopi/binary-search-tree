@@ -75,7 +75,8 @@ class Tree
       queue.push(node.right) unless node.right.nil?
     end
   end
-
+  
+  # root, left, right
   def pre_order(node = @root, &block)
     return unless block_given?
 
@@ -84,6 +85,7 @@ class Tree
     pre_order(node.right, &block) unless node.right.nil?
   end
 
+  # left, root, right
   def in_order(node = @root, &block)
     return unless block_given?
 
@@ -91,7 +93,8 @@ class Tree
     block.call(node)
     in_order(node.right, &block) unless node.right.nil?
   end
-
+  
+  # left, right, root
   def post_order(node = @root, &block)
     return unless block_given?
 
