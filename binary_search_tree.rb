@@ -32,36 +32,36 @@ class Tree
     previous.data > node.data ? previous.left = node : previous.right = node
   end
 
-  def delete(value, root = @root)
-    if root.data < value
-      root.right = delete(value, root.right)
-      return root
-    elsif root.data > value
-      root.left = delete(value, root.left)
-      return root
-    elsif root.left.nil? && root.right.nil? # if node has no children
-      left = root.left
-      right = root.right
-      root = nil
+  def delete(value, node = @root)
+    if node.data < value
+      node.right = delete(value, node.right)
+      return node
+    elsif node.data > value
+      node.left = delete(value, node.left)
+      return node
+    elsif node.left.nil? && node.right.nil? # if node has no children
+      left = node.left
+      right = node.right
+      node = nil
       return left && right
     end
 
     # if node has child
-    if root.left
-      root.data = root.left.data
-      root.left = nil
+    if node.left
+      node.data = node.left.data
+      node.left = nil
     else
-      root.data = root.right.data
-      root.right = nil
+      node.data = node.right.data
+      node.right = nil
     end
-    root
+    node
   end
 
-  def find(value, root = @root)
-    return if @root.nil?
+  def find(value, node = @root)
+    return if node.nil?
 
-    root = root.data > value ? root.left : root.right until root.nil? || root.data == value
-    root
+    node = node.data > value ? node.left : node.right until node.nil? || node.data == value
+    node
   end
 
   def level_order(&block)
@@ -69,10 +69,10 @@ class Tree
 
     queue = [@root]
     until queue.empty?
-      next_node = queue.shift
-      block.call(next_node)
-      queue.push(next_node.left) unless next_node.left.nil?
-      queue.push(next_node.right) unless next_node.right.nil?
+      node = queue.shift
+      block.call(node)
+      queue.push(node.left) unless node.left.nil?
+      queue.push(node.right) unless node.right.nil?
     end
   end
 
