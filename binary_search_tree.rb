@@ -105,7 +105,9 @@ class Tree
     return -1 if node.nil?
 
     node = find(node)
-    
+    left_height = height(node.left)
+    right_height = height(node.right)
+    [left_height, right_height].max + 1
   end
 
   def depth(node)
