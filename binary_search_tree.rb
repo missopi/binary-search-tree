@@ -110,8 +110,13 @@ class Tree
     [left_height, right_height].max + 1
   end
 
-  def depth(node)
-    # return number of edges in path from a given node to the tree’s root node
+  # return number of edges in path from a given node to the tree’s root node
+  def depth(node, root = @root)
+    return -1 if node.nil?
+
+    depth = -1
+    node = find(node)
+    return depth + 1 if node.data == root.data
   end
 
   # method to check if the tree is balanced
