@@ -77,7 +77,7 @@ class Tree
   end
 
   def pre_order(&block)
-    return 'No block given' unless block_given?
+    return unless block_given?
 
     block.call
 
@@ -86,7 +86,7 @@ class Tree
   end
 
   def in_order(&block)
-    return 'No block given' unless block_given?
+    return unless block_given?
 
     block.call
 
@@ -95,7 +95,7 @@ class Tree
   end
 
   def post_order(&block)
-    return 'No block given' unless block_given?
+    return unless block_given?
 
     block.call
 
