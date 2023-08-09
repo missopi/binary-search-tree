@@ -130,9 +130,9 @@ class Tree
 
     left_height = height(node.left)
     right_height = height(node.right)
+    return true if (left_height - right_height).abs <= 1
 
-    
-    # difference between heights of left and right subtree of every node is not more than 1
+    false
   end
 
   def rebalance
