@@ -136,7 +136,8 @@ class Tree
   end
 
   def rebalance
-    # use traversal method to provide new array to build_tree method
+    new_array = []
+    
   end
 
   def pretty_print(node = @root, prefix = '', is_left: true)
