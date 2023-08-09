@@ -115,7 +115,6 @@ class Tree
   # return number of edges in path from a given node to the tree’s root node
   def depth(node, root = @root, count = 0)
     return -1 if node.nil?
-
     return count if root.data == node
 
     if root.data > node
@@ -126,7 +125,13 @@ class Tree
   end
 
   # method to check if the tree is balanced
-  def balanced?
+  def balanced?(node = @root)
+    return true if node.nil?
+
+    left_height = height(node.left)
+    right_height = height(node.right)
+
+    
     # difference between heights of left and right subtree of every node is not more than 1
   end
 
