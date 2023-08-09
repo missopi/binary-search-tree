@@ -137,6 +137,7 @@ class Tree
 
   def rebalance
     new_array = []
+    in_order { |node| new_array.push(node.data) }
     
   end
 
