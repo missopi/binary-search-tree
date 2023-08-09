@@ -138,7 +138,7 @@ class Tree
   def rebalance
     new_array = []
     in_order { |node| new_array.push(node.data) }
-    
+    @root = build_tree(new_array, 0, new_array.length)
   end
 
   def pretty_print(node = @root, prefix = '', is_left: true)
