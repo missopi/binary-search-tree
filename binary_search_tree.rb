@@ -117,6 +117,12 @@ class Tree
     return -1 if node.nil?
 
     return count if root.data == node
+
+    if root.data > node
+      depth(node, root.left, count + 1)
+    else
+      depth(node, root.right, count + 1)
+    end
   end
 
   # method to check if the tree is balanced
